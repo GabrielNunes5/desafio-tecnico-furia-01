@@ -8,10 +8,6 @@ headers = {"Authorization": f"Bearer {TOKEN}"}
 
 
 def fetch_matches(future: bool, limit: int = 3):
-    """
-    Retorna JSON com as partidas futuras (future=True) ou passadas (future=False),
-    limitadas a ‘limit’ resultados.
-    """
     params = {
         "filter[future]": str(future).lower(),
         "sort": "begin_at" if future else "-begin_at",
@@ -39,17 +35,3 @@ def format_match(match: dict, future: bool) -> str:
                        for o in opps if o["opponent"]["name"] != "FURIA")
         return f"{dt:%d/%m %H:%M} – {opponent} ({scores.get(oppo_id, 0)}) vs FURIA ({scores.get(furia_id, 0)})"
     return f"{dt:%d/%m %H:%M} – vs {opponent}"
-
-
-def main():
-    print("Próximas 3 partidas:")
-    for m in fetch_matches(True):
-        print(" •", format_match(m, True))
-
-    print("\nÚltimas 3 partidas:")
-    for m in fetch_matches(False):
-        print(" •", format_match(m, False))
-
-
-if __name__ == "__main__":
-    main()

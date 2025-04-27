@@ -2,6 +2,7 @@ import telebot
 from dotenv import load_dotenv
 import os
 from api import fetch_matches, format_match
+from mocks.news import NEWS
 
 # Carregando as variaveis de ambiente
 load_dotenv()
@@ -36,6 +37,24 @@ def matches(msg: telebot.types.Message):
     texto += [f"• {format_match(m, False)}" for m in past]
     # Envia tudo num único reply
     bot.send_message(msg.chat.id, "\n".join(texto), parse_mode='Markdown')
+
+
+# Comando /news
+@bot.message_handler(commands=['news'])
+def news(msg: telebot.types.Message):
+    # Formata o texto com as noticias
+    for n in NEWS:
+        # Formata o texto da notícia
+        texto = (
+            f"*{n['nome_noticia']}*\n"
+            f"[Leia mais]({n['link_noticia']}) - {n['data_noticia']}\n"
+            f"{n['descricao_noticia']}"
+        )
+        # Envia o texto da notícia
+        bot.send_message(msg.chat.id, texto, parse_mode='Markdown')
+        # Verifica se 'imagem_noticia' existe e não está vazio
+        if 'imagem_noticia' in n and n['imagem_noticia']:
+            bot.send_photo(msg.chat.id, n['imagem_noticia'])
 
 
 def verify(msg):
