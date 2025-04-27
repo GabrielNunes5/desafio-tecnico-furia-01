@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os
 from api import fetch_matches, format_match
 from mocks.news import NEWS
+from mocks.shop import SHOP
 
 # Carregando as variaveis de ambiente
 load_dotenv()
@@ -55,6 +56,29 @@ def news(msg: telebot.types.Message):
         # Verifica se 'imagem_noticia' existe e não está vazio
         if 'imagem_noticia' in n and n['imagem_noticia']:
             bot.send_photo(msg.chat.id, n['imagem_noticia'])
+
+
+# Comando /shop
+@bot.message_handler(commands=['shop'])
+def shop(msg: telebot.types.Message):
+    # Formata o texto com os produtos
+    for p in SHOP:
+        # Formata o texto do produto
+        texto = (
+            f"*{p['nome_produto']}*\n"
+            f"[Ver produto]({p['link_produto']})\n"
+        )
+        # Envia o texto do produto
+        bot.send_message(msg.chat.id, texto, parse_mode='Markdown')
+        # Verifica se 'imagem_produto' existe e não está vazio
+        if 'imagem_produto' in p and p['imagem_produto']:
+            bot.send_photo(msg.chat.id, p['imagem_produto'])
+    # Envia o link para o site oficial da loja
+    bot.send_message(
+        msg.chat.id,
+        "Entre no [site oficial da loja da FURIA](https://www.furia.gg) para conferir todos os produtos da loja.",
+        parse_mode='Markdown'
+    )
 
 
 def verify(msg):
