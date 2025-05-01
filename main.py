@@ -81,6 +81,25 @@ def shop(msg: telebot.types.Message):
     )
 
 
+# Comando /contact
+@bot.message_handler(commands=['contact'])
+def contact(msg: telebot.types.Message):
+    # Formata o texto com os contatos
+    texto = (
+        "*Contatos da FURIA:*\n"
+        "• [Instagram](https://www.instagram.com/furiagg/)\n"
+        "• [X](https://x.com/FURIA)\n"
+        "• [Facebook](https://www.facebook.com/furiagg/)\n"
+        "• [TikTok](https://www.tiktok.com/@furia)\n"
+        "• [YouTube](https://www.youtube.com/@FURIAgg)\n"
+        "• [Whatsapp](https://api.whatsapp.com/send?l=pt&phone=5511945128297&text=Poderia%20me%20ajudar?)\n"
+        "• SAC: sac@furia.gg \n"
+    )
+    # Envia o texto com os contatos
+    bot.send_message(msg.chat.id, texto, parse_mode='Markdown')
+
+
+# função loop para quando mensagem for diferente das opções acima
 def verify(msg):
     return True
 
