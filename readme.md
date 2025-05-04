@@ -63,8 +63,8 @@ pip install -r requirements.txt
     ```
 
 **4. Configure as variáveis de ambiente no arquivo .env:**
-API_KEY = "SEU_TOKEN_DO_TELEGRAM"
-PANDASCORE_TOKEN = "SEU_TOKEN_DA_API_PANDASCORE"
+API_KEY = "7674698181:AAHI4T3y_rpgW_Y0Op4NySOhPLeTjH6Akdk"
+PANDASCORE_TOKEN = "Z3ZfbKwYCCvDcuBHUv9cSdhom84rRh09nlNBcq7KHWUsX6xvBl4"
 
 ## ​📨  Uso do Bot
 
@@ -73,7 +73,10 @@ PANDASCORE_TOKEN = "SEU_TOKEN_DA_API_PANDASCORE"
 python main.py
     ```
 
-**2. No Telegram, inicie uma conversa com o bot e use os comandos disponíveis:**
+**2. Acesse o link do bot no navegador:**
+https://t.me/team_furia_bot
+
+**3. No Telegram, inicie uma conversa com o bot e use os comandos disponíveis:**
 - /start ou /help
 - /matches
 - /news
