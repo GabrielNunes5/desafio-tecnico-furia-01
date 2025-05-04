@@ -45,17 +45,17 @@ Os mocks estão localizados na pasta mocks/:
 ## 🔧 Instalação
 
 **1. Clone o repositório:**
-   ```bash
-   git clone https://github.com/GabrielNunes5/desafio-tecnico-furia-01.git
-   cd desafio-tecnico-furia-01
-   ```
+```bash
+    git clone https://github.com/GabrielNunes5/desafio-tecnico-furia-01.git
+    cd desafio-tecnico-furia-01
+```
 
 **2. Crie um ambiente virtual:**
-    ```bash
+```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
-    ```
+```
 
 **3. Instale as dependências:**
     ```bash
@@ -69,9 +69,9 @@ PANDASCORE_TOKEN = "Z3ZfbKwYCCvDcuBHUv9cSdhom84rRh09nlNBcq7KHWUsX6xvBl4"
 ## ​📨  Uso do Bot
 
 **1. Execute o bot:**
-    ```bash
+```bash
 python main.py
-    ```
+```
 
 **2. Acesse o link do bot no navegador:**
 https://t.me/team_furia_bot
